@@ -48,7 +48,7 @@ body::before{
     radial-gradient(600px 400px at 100% 100%,rgba(95,208,138,.05),transparent 70%);
 }
 .app{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:0 18px 186px}
-
+​
 /* header */
 header{
   position:sticky;top:0;z-index:12;
@@ -60,7 +60,7 @@ header{
 .logo .dot{width:14px;height:14px;flex:0 0 auto;border-radius:50%;
   background:conic-gradient(from 210deg,#8b7cff,#5fd08a,#f4f4f5,#8b7cff);opacity:.9}
 .hbtns{display:flex;gap:8px}
-
+​
 /* type */
 .kicker{font-size:10.5px;letter-spacing:.2em;color:var(--tx3);text-transform:uppercase;margin:0 0 10px;font-weight:600}
 h1{font-size:27px;line-height:1.35;font-weight:650;letter-spacing:-.02em;margin:0 0 10px}
@@ -70,12 +70,12 @@ p.tight{margin-bottom:8px}
 .small{font-size:12.5px;color:var(--tx3);line-height:1.65}
 b,strong{color:var(--tx);font-weight:650}
 hr{border:0;height:1px;background:var(--line);margin:22px 0}
-
+​
 /* screens */
 section.screen{display:none}
 section.screen.on{display:block;animation:in .38s cubic-bezier(.2,.7,.2,1) both}
 @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-
+​
 /* buttons */
 button{font-family:inherit;font-size:14px;cursor:pointer;border:0;background:none;color:inherit}
 .btn{
@@ -95,7 +95,7 @@ button{font-family:inherit;font-size:14px;cursor:pointer;border:0;background:non
 .btn[disabled]{opacity:.3;pointer-events:none}
 .stack{display:flex;flex-direction:column;gap:10px;margin-top:18px}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-
+​
 /* dock */
 .dock{
   position:fixed;left:0;right:0;bottom:0;z-index:14;
@@ -105,7 +105,7 @@ button{font-family:inherit;font-size:14px;cursor:pointer;border:0;background:non
 }
 .dock .inner{max-width:560px;margin:0 auto;display:flex;gap:10px}
 .dock .inner .btn{flex:1}
-
+​
 /* cards & fields */
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px}
 .card + .card{margin-top:10px}
@@ -118,7 +118,7 @@ input[type=text],select{
 input[type=text]:focus,select:focus{border-color:var(--accent)}
 select{background-image:linear-gradient(45deg,transparent 50%,var(--tx3) 50%),linear-gradient(135deg,var(--tx3) 50%,transparent 50%);
   background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
-
+​
 /* chips */
 .chips{display:flex;gap:8px;flex-wrap:wrap}
 .chip{
@@ -126,35 +126,35 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--tx3) 50%),li
   background:var(--surface);border:1px solid var(--line);color:var(--tx2);
   display:inline-flex;align-items:center;transition:.18s}
 .chip.on{background:var(--tx);border-color:var(--tx);color:#0b0b0d}
-
+​
 /* meta row */
 .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
 .meta div{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:11px 12px;min-width:0}
 .meta .k{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);font-weight:600}
 .meta .v{font-size:14px;font-weight:650;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-
+​
 /* player rows */
 .prow{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid var(--line)}
 .prow:last-child{border-bottom:0}
 .prow .sw{width:12px;height:12px;border-radius:50%;flex:0 0 auto}
 .prow input{border:0;background:transparent;padding:6px 0;border-radius:0;font-size:15px}
 .prow input:focus{border:0}
-
+​
 /* topic slip */
 .slip{background:linear-gradient(160deg,var(--raised),var(--surface));border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-bottom:14px}
 .slip .tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);font-weight:600}
 .slip .t{font-size:24px;font-weight:650;letter-spacing:-.02em;margin-top:5px;line-height:1.3}
 .slip .src{margin-top:2px;font-size:13px;color:var(--tx2)}
 .slip .g{font-size:12px;color:var(--accent);margin-top:6px;font-weight:600}
-
+​
 .alert{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;background:rgba(139,124,255,.10);
   border:1px solid rgba(139,124,255,.28);border-radius:13px;padding:12px 14px;margin-bottom:16px;
   font-size:13px;color:#d9d3ff}
-
+​
 /* roles */
 .roles{display:flex;gap:8px;flex-wrap:wrap}
 .role{background:var(--tx);color:#0b0b0d;border-radius:11px;padding:9px 13px;font-size:14px;font-weight:650}
-
+​
 /* stage */
 .stage{position:relative;width:100%;aspect-ratio:1/1;background:#fff;border-radius:var(--r);overflow:hidden;
   box-shadow:0 18px 44px rgba(0,0,0,.5)}
@@ -162,7 +162,7 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--tx3) 50%),li
 .stage canvas{touch-action:none}
 .stage img{opacity:0;transition:opacity .5s ease}
 .stage img.on{opacity:1}
-
+​
 /* tools */
 .tools{margin-top:12px;display:flex;flex-direction:column;gap:10px}
 .inks{display:flex;gap:8px;flex-wrap:wrap}
@@ -175,20 +175,20 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--tx3) 50%),li
 .wd i{display:block;border-radius:50%;background:var(--tx)}
 .timer{font-variant-numeric:tabular-nums;font-size:20px;font-weight:650;letter-spacing:.02em}
 .timer.over{color:var(--ng)}
-
+​
 /* layer list */
 .layers{list-style:none;margin:12px 0 0;padding:0;display:flex;gap:8px;flex-wrap:wrap}
 .layers li{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--tx3);
   background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
 .layers li.on{color:var(--tx);border-color:var(--line2)}
 .layers li i{width:8px;height:8px;border-radius:50%;display:block}
-
+​
 /* table */
 table{width:100%;border-collapse:collapse;font-size:13px}
 th,td{text-align:left;padding:10px 6px;border-bottom:1px solid var(--line);color:var(--tx2)}
 th{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);font-weight:600}
 td b{color:var(--tx)}
-
+​
 .inks{display:none}
 /* steps */
 ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
@@ -198,18 +198,18 @@ ol.steps li::before{content:counter(s);width:28px;height:28px;border-radius:50%;
   border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:650;color:var(--tx)}
 ol.steps b{display:block;grid-column:2}
 ol.steps span{grid-column:2;font-size:13px;color:var(--tx2)}
-
+​
 ul.lv{list-style:none;margin:0;padding:0}
 ul.lv li{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;color:var(--tx2)}
 ul.lv li:last-child{border-bottom:0}
 ul.lv em{font-style:normal;color:var(--accent);font-weight:650}
-
+​
 /* gallery */
 .gal{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .gal figure{margin:0}
 .gal img{width:100%;display:block;border-radius:12px;background:#fff}
 .gal figcaption{font-size:11.5px;color:var(--tx3);margin-top:6px}
-
+​
 /* sheet */
 .sheet{position:fixed;inset:0;z-index:30;display:none;background:rgba(5,5,7,.6);backdrop-filter:blur(6px)}
 .sheet.on{display:block}
@@ -260,7 +260,7 @@ ul.lv em{font-style:normal;color:var(--accent);font-weight:650}
   .slip .t{font-size:19px}
 }
 footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);font-size:11.5px;color:var(--tx3)}
-
+​
 /* hero */
 .hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:24px;
   background:linear-gradient(165deg,#191922 0%,#101014 62%,#0d0d11 100%);
@@ -294,7 +294,7 @@ footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);font-si
 #stage2 img.on{animation:layerIn .42s ease-out}
 @keyframes layerIn{from{opacity:0;transform:scale(1.04) rotate(-.6deg)}to{opacity:1;transform:none}}
 .timer.hot{color:#ffd479;animation:beat 1s ease-in-out infinite}
-
+​
 /* ---------- craft pass ---------- */
 button,.chip,.sg{-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
 body{overscroll-behavior:none}
@@ -305,7 +305,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .btn:active{transform:scale(.965)}
 .chip{transition:transform .14s cubic-bezier(.2,.8,.2,1),background .2s,border-color .2s,color .2s}
 .chip:active{transform:scale(.95)}
-
+​
 /* segmented controls */
 .seg{display:flex;gap:8px;flex-wrap:wrap}
 .seg.col{flex-direction:column}
@@ -320,7 +320,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
   box-shadow:0 6px 20px rgba(139,124,255,.15)}
 .sg .sub{display:block;margin-top:3px;font-size:11.5px;font-weight:450;color:var(--tx3)}
 .sg.on .sub{color:var(--tx2)}
-
+​
 /* timer ring */
 .ringWrap{position:relative;width:58px;height:58px;display:grid;place-items:center;flex:0 0 auto}
 .ringWrap svg{position:absolute;inset:0;width:58px;height:58px;transform:rotate(-90deg)}
@@ -330,7 +330,7 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .ringWrap.hot .prg{stroke:#ffd479}
 .ringWrap.over .prg{stroke:var(--ng)}
 .ringWrap .timer{font-size:15px;letter-spacing:0}
-
+​
 /* pass card */
 .passCard{margin:34px 0 16px;padding:34px 22px 30px;border-radius:24px;text-align:center;cursor:pointer;
   background:radial-gradient(120% 90% at 50% 0%,rgba(139,124,255,.20),transparent 68%),var(--surface);
@@ -344,18 +344,18 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
   font-size:31px;font-weight:650;color:#0b0b0d;letter-spacing:.02em;
   background:linear-gradient(155deg,#cfc7ff,#8b7cff 45%,#5fd08a);
   box-shadow:0 14px 36px rgba(139,124,255,.32),inset 0 1px 0 rgba(255,255,255,.5)}
-
+​
 @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
 .flashOk,.flashNg{position:fixed;inset:0;z-index:55;pointer-events:none;opacity:0;animation:flash .5s ease-out}
 .flashOk{background:radial-gradient(closest-side,rgba(95,208,138,.30),transparent 70%)}
 .flashNg{background:radial-gradient(closest-side,rgba(255,107,94,.26),transparent 70%)}
 @keyframes flash{0%{opacity:1}100%{opacity:0}}
-
+​
 .hide{display:none!important}
 .center{text-align:center}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 #scDraw .dock{position:static;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:18px 0 0;margin-top:0}
-
+​
 /* canvas-focus-layout: keep the shared square coordinate system, maximize drawing space */
 body.is-drawing .app{max-width:none;padding:0 8px calc(12px + env(safe-area-inset-bottom))}
 body.is-drawing header{padding:6px 4px;margin:0;position:static;background:none;min-height:44px}
@@ -403,7 +403,95 @@ body.is-drawing .hbtns .btn{padding:7px 9px;min-height:34px;font-size:11px}
  #scDraw .tools{grid-column:2;grid-row:4;align-self:center;margin:0}
  #scDraw .dock{grid-column:2;grid-row:5;padding:0}
 }
-
+​
+​
+/* Topic screen: prevent nested card styling and keep actions in document flow. */
+#scTopic .meta{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#scTopic .meta>div{padding:12px;min-width:0}
+#scTopic .meta .k,#scTopic .meta .v{background:none;border:0;border-radius:0;padding:0}
+#scTopic .meta .v{white-space:normal;overflow:visible;overflow-wrap:anywhere;line-height:1.45;margin-top:5px}
+#scTopic .alert{display:block;overflow-wrap:anywhere;line-height:1.7}
+#scTopic .slip .t,#scTopic .slip .src{overflow-wrap:anywhere}
+#scTopic .dock{position:static;padding:12px 0 0;margin:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+#scTopic .dock .inner{width:100%;max-width:none;margin:0}
+#scTopic .dock .inner .btn{flex:1;max-width:none}
+body.is-topic .app{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+@media(max-width:480px){
+ #scTopic .meta{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:12px}
+ #scTopic .meta>div:last-child{grid-column:1/-1;display:flex;align-items:baseline;gap:12px}
+ #scTopic .meta>div:last-child .v{margin-top:0}
+ #scTopic .meta .v{font-size:14px}
+ #scTopic .slip{padding:16px}
+ #scTopic .slip .t{font-size:23px}
+ #scTopic .stack{margin-top:14px}
+ body.is-topic header{gap:8px;flex-wrap:wrap}
+ body.is-topic .hbtns{margin-left:auto;gap:5px}
+ body.is-topic .hbtns .btn{padding:0 9px}
+}
+​
+​
+/* Shared mobile layout corrections; actions follow their content without overlap. */
+.app{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+header{flex-wrap:wrap;gap:8px}
+.hbtns{margin-left:auto;flex-shrink:0}
+.hbtns .btn{white-space:nowrap}
+.screen>.dock{position:static;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:14px 0 0;margin:0}
+.screen>.dock>.inner{max-width:620px;width:100%;margin:0 auto;gap:10px}
+.screen>.dock>.inner>.btn{flex:1;min-width:0}
+.stagewrap>div{min-width:0}
+#passName,#rvHead,#rsSub,#kWho,.gal figcaption{overflow-wrap:anywhere}
+#tLog,#tEndLog{table-layout:fixed;width:100%}
+#tLog td,#tEndLog td,#tScore td,#tEndScore td,#tEndLog b,#tLog b{overflow-wrap:anywhere}
+#tLog td:first-child,#tEndLog td:first-child{width:34px}
+#tLog td:nth-child(2),#tEndLog td:nth-child(2){width:43%}
+#tLog td:last-child,#tEndLog td:last-child{width:52px}
+.gal{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gal figure{min-width:0}
+.pen-fixed{font-size:11px;color:var(--tx2);white-space:nowrap;padding:0 6px}
+#scDraw .tools{gap:6px 10px}
+@media(max-width:480px){
+ header{padding:10px 0;min-height:48px}
+ .hbtns{gap:5px}
+ .hbtns .btn{padding:0 9px;min-height:36px}
+ .passCard{padding:26px 16px;margin-top:20px}
+ .passCard h1{font-size:25px}
+ #scResult table,#scEnd table{font-size:12px}
+ #scResult .row>.btn{white-space:normal;min-height:42px;padding:9px 12px}
+}
+@media(max-width:350px){
+ header .logo{font-size:10px;letter-spacing:.06em;gap:5px}
+ header .logo .dot{width:10px;height:10px}
+ .hbtns .btn{font-size:10px;padding:0 7px}
+ header .hbtns{gap:4px}
+}
+​
+​
+.resume-card{margin:14px 0 22px;padding:20px;border:1px solid rgba(139,124,255,.4);background:var(--surface);border-radius:16px}
+.resume-card h2{margin:0 0 8px;font-size:19px}
+.resume-card .kicker{margin-bottom:7px;color:var(--accent)}
+.resume-card #resumeInfo{font-size:13px;overflow-wrap:anywhere}
+.resume-card .small{margin:10px 0 0;font-size:11px}
+.save-warning{padding:12px;margin:8px 0;background:#382b1e;border:1px solid #927047;border-radius:10px;color:#f4dfc0;font-size:12px;overflow-wrap:anywhere}
+#bPauseDraw{display:none}
+@media(orientation:landscape) and (max-height:560px){#bPauseDraw{display:inline-flex;min-height:34px;margin-left:auto}#scDraw #kWho{flex:1;min-width:0}}
+​
+​
+/* app-scroll-isolation: the document never scrolls; only app/panel content does. */
+html{height:100%;width:100%;overflow:hidden;overscroll-behavior:none}
+body{position:fixed;inset:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;padding-bottom:0}
+.app,body.is-drawing .app,body.is-topic .app{
+ height:var(--app-height,100dvh);overflow-y:auto;overflow-x:hidden;
+ overscroll-behavior:none;-webkit-overflow-scrolling:touch;
+ padding-top:env(safe-area-inset-top,0px);
+ scroll-padding-top:72px;scroll-padding-bottom:24px;
+}
+.sheet .panel{overscroll-behavior:none;-webkit-overflow-scrolling:touch;max-height:calc(var(--app-height,100dvh) - 12px)}
+@media(pointer:coarse){
+ button.btn,button.chip,button.sg,.hbtns .btn,body.is-drawing .hbtns .btn,#scDraw .tools .btn,#bPauseDraw{min-height:44px;min-width:44px}
+}
+​
+button,a,.passCard{touch-action:manipulation}
+@media(pointer:coarse){button{min-height:44px!important;min-width:44px!important}}
 </style>
 </head>
 <body>
@@ -417,9 +505,17 @@ body.is-drawing .hbtns .btn{padding:7px 9px;min-height:34px;font-size:11px}
     <button class="btn xs" id="bReset">最初から</button>
   </div>
 </header>
-
+<div class="save-warning hide" id="saveWarning" role="status"></div>
+​
 <!-- SETUP -->
 <section class="screen on" id="scSetup">
+  <div class="resume-card hide" id="resumeCard">
+    <p class="kicker">SAVED GAME</p>
+    <h2>続きが保存されています</h2>
+    <p id="resumeInfo"></p>
+    <button class="btn" id="bResume">続きから再開</button>
+    <p class="small" id="resumeStorage"></p>
+  </div>
   <div class="hero">
     <div class="heroGlow" aria-hidden="true"></div>
     <svg class="heroFace" viewBox="0 0 120 120" aria-hidden="true">
@@ -441,17 +537,17 @@ body.is-drawing .hbtns .btn{padding:7px 9px;min-height:34px;font-size:11px}
       <div><b>1</b><span>device</span></div>
     </div>
   </div>
-
+​
   <div class="card">
     <span class="lab" style="display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);font-weight:600;margin-bottom:10px">Players</span>
     <div class="chips" id="countChips"></div>
     <hr />
     <div id="pList"></div>
   </div>
-
+​
   <h2>お題のジャンル</h2>
   <div class="chips" id="genreChips"></div>
-
+​
   <h2>オプション</h2>
   <div class="field"><span class="lab">Level（上級者向けの縛り）</span><div class="seg" id="segLevel"></div><select id="selLevel" class="hide" aria-hidden="true" tabindex="-1"></select></div>
   <p class="small" style="margin:-6px 0 16px">描き方に縛りを足すおまけルール（例：上下逆に描く、利き手と逆の手で描く）。まずは「なし」でOK。</p>
@@ -470,14 +566,14 @@ body.is-drawing .hbtns .btn{padding:7px 9px;min-height:34px;font-size:11px}
       <option value="120">120秒</option><option value="0">なし</option>
     </select>
   </div>
-
+​
   <div class="stack">
     <button class="btn" id="bStart">はじめる</button>
     <button class="btn line" id="bRules2">遊び方を見る</button>
   </div>
   <footer>原作：キメラアート（ちゃちゃ／茶々屋）の非公式デジタル版です。</footer>
 </section>
-
+​
 <!-- TOPIC -->
 <section class="screen" id="scTopic">
   <p class="kicker">Round <span id="rNo">1</span> ・ お題を決める</p>
@@ -487,9 +583,9 @@ body.is-drawing .hbtns .btn{padding:7px 9px;min-height:34px;font-size:11px}
     <div><div class="k">Level</div><div class="v" id="mLevel">—</div></div>
   </div>
   <div class="alert">親（<b id="warnName"></b>）は画面を見ないでください。出題者が操作します。</div>
-
+​
   <div id="topicView"></div>
-
+​
   <div class="stack">
     <button class="btn line" id="bShuffle">ランダムで引き直す</button>
     <button class="btn soft" id="bManual">自分たちでお題を決める</button>
@@ -501,7 +597,7 @@ body.is-drawing .hbtns .btn{padding:7px 9px;min-height:34px;font-size:11px}
   <p class="small" style="margin-top:14px">全員が「なんとなく知っている」ならOK。うろ覚えの方が楽しめます。</p>
   <div class="dock"><div class="inner"><button class="btn" id="bDeal">このお題で役割を配る</button></div></div>
 </section>
-
+​
 <!-- PASS -->
 <section class="screen" id="scPass">
   <div class="passCard" id="passCard">
@@ -513,11 +609,12 @@ body.is-drawing .hbtns .btn{padding:7px 9px;min-height:34px;font-size:11px}
   <p class="small center" id="passLeft"></p>
   <div class="dock"><div class="inner"><button class="btn" id="bOpen">役割を見る</button></div></div>
 </section>
-
+​
 <!-- DRAW -->
 <section class="screen" id="scDraw">
   <div class="row" style="justify-content:space-between;margin-bottom:10px">
     <p class="kicker" style="margin:0" id="kWho">—</p>
+    <button class="btn xs pause-draw" id="bPauseDraw">中断</button>
     <div class="ringWrap" id="ringWrap"><svg viewBox="0 0 58 58" aria-hidden="true"><circle class="trk" cx="29" cy="29" r="25.5"/><circle class="prg" id="ringP" cx="29" cy="29" r="25.5" stroke-dasharray="160.2" stroke-dashoffset="0"/></svg><span class="timer" id="timer">—</span></div>
   </div>
   <div class="slip">
@@ -546,7 +643,7 @@ body.is-drawing .hbtns .btn{padding:7px 9px;min-height:34px;font-size:11px}
   </div>
   <div class="dock"><div class="inner"><button class="btn" id="bDone">描けた！次の人へ</button></div></div>
 </section>
-
+​
 <!-- REVEAL -->
 <section class="screen" id="scReveal">
   <p class="kicker">Reveal</p>
@@ -568,7 +665,7 @@ body.is-drawing .hbtns .btn{padding:7px 9px;min-height:34px;font-size:11px}
     <button class="btn ok" id="bOk">正解！</button>
   </div></div>
 </section>
-
+​
 <!-- RESULT -->
 <section class="screen" id="scResult">
   <p class="kicker">Result</p>
@@ -591,7 +688,7 @@ body.is-drawing .hbtns .btn{padding:7px 9px;min-height:34px;font-size:11px}
     <button class="btn" id="bNext">次のラウンド</button>
   </div></div>
 </section>
-
+​
 <!-- END -->
 <section class="screen" id="scEnd">
   <p class="kicker">Finish</p>
@@ -605,7 +702,7 @@ body.is-drawing .hbtns .btn{padding:7px 9px;min-height:34px;font-size:11px}
   <div class="stack"><button class="btn" id="bAgain">もう一度遊ぶ</button></div>
 </section>
 </div>
-
+​
 <!-- RULES SHEET -->
 <div class="sheet" id="sheet">
   <div class="panel"><div class="inner">
@@ -632,10 +729,10 @@ body.is-drawing .hbtns .btn{padding:7px 9px;min-height:34px;font-size:11px}
 </div>
 <script>
 "use strict";
-
+​
 /* ---------- data ---------- */
 const ROLES = ["あたま（髪・帽子）","かおの輪郭","むかって左の目","むかって右の目","まゆ","はな","くち","みみ","くび・かた","どうたい・手足"];
-
+​
 const LV = [
   {n:0,t:"なし",d:"ふつうに担当パーツを描く"},
   {n:1,t:"上下逆",d:"ガイドを上下逆に見ながら描く"},
@@ -649,7 +746,7 @@ const LV = [
   {n:9,t:"赤ちゃん",d:"赤ちゃんの頃を想像で"},
   {n:10,t:"キメラ",d:"お題2つを混ぜて描く"}
 ];
-
+​
 const GENRES = [
   {id:"anime",  label:"アニメ・漫画"},
   {id:"disney", label:"ディズニー"},
@@ -657,7 +754,7 @@ const GENRES = [
   {id:"history",label:"歴史・偉人"},
   {id:"tale",   label:"童話・伝説"}
 ];
-
+​
 const T = [];
 const add=(g,lv,arr)=>arr.forEach(x=>T.push({t:x[0],s:x[1],g,lv}));
 add("anime",1,[["ドラミ","ドラえもん"],["しずちゃん","ドラえもん"],["スネ夫","ドラえもん"],["向ひまわり","クレヨンしんちゃん"],["風花フュロー","クレヨンしんちゃん"],["カズマさん","サザエさん"],["タラちゃん","サザエさん"],["カキ子先生","ちびまる子ちゃん"],["食パンマン","アンパンマン"],["カレーパンマン","アンパンマン"],["パーマン","パーマン"],["スナブヺビップ","スナブヺビップ"],["コジコジ","レンタルマガジン"],["ドラえもん","ドラえもん"],["のび太","ドラえもん"],["ジャイアン","ドラえもん"],["ピカチュウ","ポケモン"],["アンパンマン","アンパンマン"],["ばいきんまん","アンパンマン"],["野原しんのすけ","クレヨンしんちゃん"],["さくらももこ","ちびまる子ちゃん"],["サザエさん","サザエさん"],["ハローキティ","サンリオ"],["トトロ","となりのトトロ"],["カオナシ","千と千尋の神隠し"],["孫悟空","ドラゴンボール"],["ルフィ","ONE PIECE"],["チョッパー","ONE PIECE"],["ナルト","NARUTO"],["竈門炭治郎","鬼滅の刃"],["竈門禰豆子","鬼滅の刃"],["セーラームーン","美少女戦士セーラームーン"],["ルパン三世","ルパン三世"],["江戸川コナン","名探偵コナン"],["アラレちゃん","Dr.スランプ"],["鬼太郎","ゲゲゲの鬼太郎"],["鉄腕アトム","鉄腕アトム"],["アーニャ","SPY×FAMILY"],["初音ミク","ボーカロイド"]]);
@@ -671,9 +768,9 @@ add("history",1,[["聖徳太子",""],["織田信長",""],["豊臣秀吉",""],["�
 add("history",2,[["源義経",""],["武蔵坊弁慶",""],["武田信玄",""],["上杉謙信",""],["平清盛",""],["清少納言",""],["松尾芭蕉",""],["千利休",""],["二宮金次郎",""],["土方歳三",""],["沖田総司",""],["渋沢栄一",""],["勝海舟",""],["高杉晋作",""],["ガリレオ・ガリレイ",""],["ニュートン",""],["ダーウィン",""],["キュリー夫人",""],["コロンブス",""],["マルコ・ポーロ",""],["シェイクスピア",""],["モーツァルト",""],["ゴッホ",""],["ミケランジェロ",""],["ヘレン・ケラー",""],["ナイチンゲール",""],["ソクラテス",""],["孔子",""],["チンギス・ハン",""],["カエサル",""],["ウィルバー・ライト","飛行機の発明者"]]);
 add("tale",1,[["桃太郎","日本昔話"],["金太郎","日本昔話"],["浦島太郎","日本昔話"],["一寸法師","日本昔話"],["かぐや姫","竹取物語"],["シンデレラ","ペロー童話"],["白雪姫","グリム童話"],["人魚姫","アンデルセン"],["赤ずきん","グリム童話"],["ピノキオ","ピノキオの冒険"],["ピーターパン","ピーターパン"],["アラジン","アラビアンナイト"],["サンタクロース","クリスマス"],["アリス","不思議の国のアリス"],["ドラキュラ","吸血鬼伝説"],["フランケンシュタインの怪物","小説"],["シャーロック・ホームズ","推理小説"]]);
 add("tale",2,[["花咲かじいさん","日本昔話"],["かちかち山のたぬき","日本昔話"],["鶴の恩返し","日本昔話"],["雪女","日本の妖怪"],["河童","日本の妖怪"],["天狗","日本の妖怪"],["鬼","日本の妖怪"],["座敷わらし","日本の妖怪"],["ろくろ首","日本の妖怪"],["ロビン・フッド","イギリス伝説"],["ヘラクレス","ギリシャ神話"],["ゼウス","ギリシャ神話"],["メドゥーサ","ギリシャ神話"],["ミノタウロス","ギリシャ神話"],["スフィンクス","神話"],["ケンタウロス","ギリシャ神話"],["ユニコーン","伝説の生き物"],["ハーピー","ギリシャ神話"]]);
-
+​
 const INKS = ["#17171a"];
-
+​
 const GUIDE = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">'
  + '<g fill="none" stroke="#d0d0d9" stroke-width=".75" stroke-dasharray="2.6 2.4" stroke-linecap="round">'
  + '<ellipse cx="50" cy="40" rx="26" ry="28"/>'
@@ -684,9 +781,9 @@ const GUIDE = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" sty
  + '</g><g stroke="#ededf2" stroke-width=".35">'
  + '<line x1="50" y1="12" x2="50" y2="100"/><line x1="24" y1="40" x2="76" y2="40"/>'
  + '</g></svg>';
-
-let cv=null, ctx=null, strokes=[], cur=null, ink=INKS[0], lw=6, erasing=false, tid=0, penSeen=false, activePointer=null;
-
+​
+let cv=null, ctx=null, strokes=[], cur=null, ink=INKS[0], lw=11, erasing=false, tid=0, penSeen=false, activePointer=null;
+​
 /* ---------- sound & fx ---------- */
 const SFX = (function(){
   let ac = null, on = true;
@@ -741,7 +838,7 @@ const SFX = (function(){
   };
 })();
 function buzz(pat){ try{ if(navigator.vibrate) navigator.vibrate(pat); }catch(e){} }
-
+​
 const FX = (function(){
   const c = document.getElementById("fx");
   const g = c.getContext("2d");
@@ -780,7 +877,7 @@ const FX = (function(){
     }
   };
 })();
-
+​
 function segify(selId, boxId){
   const sel=$(selId), box=$(boxId);
   const draw=()=>{
@@ -798,24 +895,26 @@ function segify(selId, boxId){
   draw();
   return draw;
 }
-
+​
 /* ---------- state ---------- */
 let S = null;
 const $ = (id)=>document.getElementById(id);
 const esc = (s)=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let setup = {count:4, names:["","","","","",""], genres:["anime","disney","game","history","tale"]};
-
+​
 function show(id){
   document.querySelectorAll("section.screen").forEach(s=>s.classList.remove("on"));
   $(id).classList.add("on");
   document.body.classList.toggle("is-drawing",id==="scDraw");
-  window.scrollTo({top:0,behavior:"instant"});
+  document.body.classList.toggle("is-topic",id==="scTopic");
+  document.querySelector(".app").scrollTo({top:0,behavior:"instant"});
+  window.GameResume?.onShow(id);
 }
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]];}return a;}
 function lvOf(n){return LV.find(l=>l.n===n)||LV[0];}
 function gLabel(id){const g=GENRES.find(x=>x.id===id);return g?g.label:"";}
 function stars(lv){return "●".repeat(lv)+"○".repeat(3-lv);}
-
+​
 /* ---------- setup ui ---------- */
 function renderCount(){
   $("countChips").innerHTML = [3,4,5,6].map(n=>
@@ -842,15 +941,17 @@ function renderLevelSelect(){
 </script>
 <script>
 "use strict";
-
+​
 /* ---------- start ---------- */
 function fresh(){
   return {players:[],parent:0,round:1,level:0,mode:"basic",secs:60,genres:[],
     A:null,B:null,manual:false,roles:{},order:[],turn:0,layers:{},log:[],scores:{},gal:[]};
 }
 function startGame(){
+  if(window.GameResume && !GameResume.newGameAllowed())return;
   document.querySelectorAll(".nm").forEach(i=>{ setup.names[+i.dataset.i]=i.value.trim(); });
   S = fresh();
+  S.sessionId=Date.now().toString(36)+Math.random().toString(36).slice(2);
   for(let i=0;i<setup.count;i++){
     S.players.push({name:setup.names[i]||("プレイヤー"+(i+1)), color:INKS[i%INKS.length]});
     S.scores[i]=0;
@@ -865,7 +966,7 @@ function startGame(){
 const leftOf =(i)=>(i+1)%S.players.length;
 const rightOf=(i)=>(i-1+S.players.length)%S.players.length;
 const navi   =()=>rightOf(S.parent);
-
+​
 /* ---------- round: topic ---------- */
 function pool(){
   const p = T.filter(x=>S.genres.includes(x.g));
@@ -937,7 +1038,7 @@ function nextRound(retry){
 }
 function label1(x){ return x.t + (x.s?"（"+x.s+"）":""); }
 function topicText(){ return S.B ? (label1(S.A)+" ＋ "+label1(S.B)) : label1(S.A); }
-
+​
 /* ---------- pass ---------- */
 function gotoPass(){
   if(S.turn>=S.order.length){ gotoReveal(); return; }
@@ -953,18 +1054,12 @@ function initGuides(){
 }
 function buildTools(){
   $("inks").innerHTML = INKS.map(c=>'<button class="ink" data-c="'+c+'" style="background:'+c+'"></button>').join("");
-  $("wds").innerHTML = [3,6,11,20].map(w=>{
-    const d=Math.max(5,Math.round(w*.8));
-    return '<button aria-label="線の太さ '+w+'" class="wd" data-w="'+w+'"><i style="width:'+d+'px;height:'+d+'px"></i></button>';
-  }).join("");
+  $("wds").innerHTML = '<span class="pen-fixed">ペン：中</span>';
   $("inks").addEventListener("click",e=>{
     const b=e.target.closest(".ink"); if(!b) return;
     ink=b.dataset.c; erasing=false; syncTools();
   });
-  $("wds").addEventListener("click",e=>{
-    const b=e.target.closest(".wd"); if(!b) return;
-    lw=+b.dataset.w; syncTools();
-  });
+​
 }
 function syncTools(){
   document.querySelectorAll("#inks .ink").forEach(b=>b.classList.toggle("on", b.dataset.c===ink && !erasing));
@@ -976,7 +1071,7 @@ function startTurn(){
   const seat=S.order[S.turn], p=S.players[seat];
   if(seat===undefined || !p){ gotoReveal(); return; }
   SFX.start();
-  ink=p.color; erasing=false; lw=6; strokes=[]; cur=null; penSeen=false; activePointer=null;
+  ink=p.color; erasing=false; lw=11; strokes=[]; cur=null; penSeen=false; activePointer=null;
   $("kWho").textContent=p.name+" の番";
   $("dTopic").textContent=topicText();
   const extra = S.mode==="chimera" ? "キメラ：貢献できそうな方を描く（相談禁止）" : "";
@@ -985,27 +1080,31 @@ function startTurn(){
   cv=$("cv"); ctx=cv.getContext("2d"); ctx.clearRect(0,0,cv.width,cv.height);
   syncTools(); startTimer(); show("scDraw");
 }
-function startTimer(){
+let timerLeft=null;
+function startTimer(remaining=S.secs){
   clearInterval(tid);
   const el=$("timer"), rw=$("ringWrap"), ring=$("ringP"), C=160.2;
   el.classList.remove("over","hot"); rw.classList.remove("over","hot");
-  if(!S.secs){ el.textContent="∞"; ring.style.strokeDashoffset=C; return; }
-  let left=S.secs;
+  timerLeft=remaining;
+  if(!S.secs){ timerLeft=null; el.textContent="∞"; ring.style.strokeDashoffset=C; return; }
   const paint=()=>{
-    const a=Math.abs(left);
-    el.textContent=(left<0?"+":"")+Math.floor(a/60)+":"+String(a%60).padStart(2,"0");
-    ring.style.strokeDashoffset = String(C*(1-Math.max(0,Math.min(1,left/S.secs))));
+    const a=Math.abs(timerLeft);
+    el.textContent=(timerLeft<0?"+":"")+Math.floor(a/60)+":"+String(a%60).padStart(2,"0");
+    ring.style.strokeDashoffset = String(C*(1-Math.max(0,Math.min(1,timerLeft/S.secs))));
   };
+  if(timerLeft<=0){el.classList.add("over");rw.classList.add("over");}
+  else if(timerLeft<=10){el.classList.add("hot");rw.classList.add("hot");}
   paint();
   tid=setInterval(()=>{
-    left--;
-    if(left>0 && left<=10){ el.classList.add("hot"); rw.classList.add("hot"); left<=5 ? SFX.urgent() : SFX.tick(); if(left<=3) buzz(20); }
-    if(left===0){ el.classList.remove("hot"); rw.classList.remove("hot"); el.classList.add("over"); rw.classList.add("over"); SFX.over(); buzz([60,50,60]); }
+    timerLeft--;
+    if(timerLeft>0 && timerLeft<=10){ el.classList.add("hot"); rw.classList.add("hot"); timerLeft<=5 ? SFX.urgent() : SFX.tick(); if(timerLeft<=3) buzz(20); }
+    if(timerLeft===0){ el.classList.remove("hot"); rw.classList.remove("hot"); el.classList.add("over"); rw.classList.add("over"); SFX.over(); buzz([60,50,60]); }
     paint();
-    if(left<=-180) clearInterval(tid);
+    if(timerLeft%2===0)window.GameResume?.checkpoint();
+    if(timerLeft<=-180) clearInterval(tid);
   },1000);
 }
-
+​
 function xy(e){
   const r=cv.getBoundingClientRect();
   return {x:(e.clientX-r.left)/r.width*cv.width, y:(e.clientY-r.top)/r.height*cv.height,
@@ -1019,13 +1118,13 @@ function redraw(){
     ctx.strokeStyle=s.c; ctx.fillStyle=s.c;
     const q=s.pts;
     if(q.length===1){
-      ctx.beginPath(); ctx.arc(q[0].x,q[0].y,Math.max(.8,s.w*(.32+q[0].p*.5)),0,6.2832); ctx.fill(); return;
+      ctx.beginPath(); ctx.arc(q[0].x,q[0].y,s.w/2,0,6.2832); ctx.fill(); return;
     }
     for(let i=1;i<q.length;i++){
       const a=q[i-1], b=q[i];
       const m0 = (i===1) ? a : {x:(q[i-2].x+a.x)/2, y:(q[i-2].y+a.y)/2};
       const m1 = (i===q.length-1) ? b : {x:(a.x+b.x)/2, y:(a.y+b.y)/2};
-      ctx.lineWidth = s.w * (.5 + ((a.p+b.p)/2)*.95);
+      ctx.lineWidth = s.w;
       ctx.beginPath(); ctx.moveTo(m0.x,m0.y); ctx.quadraticCurveTo(a.x,a.y,m1.x,m1.y); ctx.stroke();
     }
   });
@@ -1057,7 +1156,7 @@ function doneTurn(){
   S.layers[S.order[S.turn]] = cv.toDataURL("image/png");
   S.turn++; gotoPass();
 }
-
+​
 /* ---------- reveal ---------- */
 let shown=0;
 function gotoReveal(){
@@ -1088,7 +1187,7 @@ function stackOne(){
   $("bOne").disabled = shown>=imgs.length;
 }
 function stackAll(){ const n=$("stage2").querySelectorAll("img").length; while(shown<n) stackOne(); }
-
+​
 /* ---------- result ---------- */
 function judge(ok){
   if(!$("scReveal").classList.contains("on")) return;
@@ -1104,6 +1203,9 @@ function judge(ok){
   }
   S.log.push({r:S.round,topic:topicText(),parent:S.players[S.parent].name,res});
   compose();
+  renderResult(ok);
+}
+function renderResult(ok){
   $("rsHead").textContent = ok?"正解！":"惜しい！";
   $("rsSub").textContent = "お題は「"+topicText()+"」でした。";
   const st=$("stage3");
@@ -1152,6 +1254,7 @@ function compose(){
     session.gal.push({r:round, topic:topic, url:c.toDataURL("image/png")});
     if(S===session) $("bSave").disabled=false;
     resolveExport();
+    if(S===session)window.GameResume?.exportFinished();
   };
   if(!srcs.length){ fin(); return; }
   srcs.forEach(src=>{ const im=new Image();
@@ -1180,7 +1283,7 @@ async function endGame(){
     : '<p class="small">作品はまだありません。</p>';
   show("scEnd");
 }
-
+​
 /* ---------- wire ---------- */
 renderCount(); renderNames(); renderGenres(); renderLevelSelect(); segify("selLevel","segLevel"); segify("selMode","segMode"); segify("selTime","segTime"); buildTools(); initGuides(); bindCanvas();
 $("countChips").addEventListener("click",e=>{ const b=e.target.closest(".chip"); if(!b) return;
@@ -1224,5 +1327,149 @@ document.addEventListener("pointerdown",(e)=>{
 },true);
 $("bSound").onclick=()=>{ const on=SFX.toggle(); $("bSound").textContent = on ? "♪ ON" : "♪ OFF"; $("bSound").classList.toggle("soft", !on); };
 </script>
+<script>
+/* Local recovery: a single checkpoint, saved on transitions and completed strokes. */
+window.GameResume = (()=>{
+  const KEY='chimera-art.resume.v1';
+  const screens=['scTopic','scPass','scDraw','scReveal','scResult','scEnd'];
+  let saved=null,restoring=false,saveTimeout=null,storageOK=true,loaded=false;
+  const current=()=>document.querySelector('section.screen.on')?.id;
+  const clone=x=>JSON.parse(JSON.stringify(x));
+  function warning(message){const el=$('saveWarning');el.textContent=message;el.classList.remove('hide');}
+  function valid(x){return x&&x.version===1&&screens.includes(x.screen)&&x.game&&Array.isArray(x.game.players)&&x.game.players.length>=3&&x.game.players.length<=6&&Array.isArray(x.game.order)&&Array.isArray(x.game.log)&&Array.isArray(x.game.gal)&&Array.isArray(x.strokes)&&x.game.parent>=0&&x.game.parent<x.game.players.length;}
+  function card(){
+    $('resumeCard').classList.toggle('hide',!saved);
+    $('bReset').classList.toggle('hide',current()==='scSetup');
+    if(!saved)return;
+    const x=saved, labels={scTopic:'お題を決めるところ',scPass:'端末の受け渡し',scDraw:'描いている途中',scReveal:'答え合わせ',scResult:'ラウンドの結果',scEnd:'終了後の作品一覧'};
+    const player=x.game.players[x.game.order[x.game.turn]];
+    $('resumeInfo').textContent='Round '+x.game.round+' · '+x.game.players.length+'人 · '+labels[x.screen]+(x.screen==='scDraw'&&player?'（'+player.name+'）':'');
+    $('resumeStorage').textContent=storageOK?'この端末に自動保存済み。お題は再開するまで表示しません。':'この画面内でのみ再開できます。閉じる前に保存の警告をご確認ください。';
+    $('bResume').textContent=x.screen==='scEnd'?'作品と記録を開く':'続きから再開';
+  }
+  function write(x){
+    saved=x;
+    try{localStorage.setItem(KEY,JSON.stringify(x));storageOK=true;$('saveWarning').classList.add('hide');}
+    catch(e){storageOK=false;try{localStorage.removeItem(KEY)}catch(_){};warning('端末への保存ができません（空き容量・ブラウザ設定をご確認ください）。この画面内では再開できますが、閉じると続きが失われます。');}
+    card();
+  }
+  function checkpoint(){
+    clearTimeout(saveTimeout);
+    if(restoring||!S||!screens.includes(current()))return;
+    const x={version:1,savedAt:Date.now(),screen:current(),game:clone(S),setup:clone(setup),strokes:current()==='scDraw'?clone(strokes):[],timerLeft,shown,erasing,inputs:{a:$('inA').value,b:$('inB').value},scrollY:document.querySelector(".app").scrollTop};
+    write(x);
+  }
+  function schedule(){if(restoring)return;clearTimeout(saveTimeout);saveTimeout=setTimeout(checkpoint,250);}
+  function onShow(id){
+    $('bReset').textContent='中断';
+    $('bReset').classList.toggle('hide',id==='scSetup');
+    if(id!=='scSetup')checkpoint();else card();
+  }
+  function pause(){
+    if(!screens.includes(current()))return;
+    clearInterval(tid);cur=null;activePointer=null;
+    checkpoint();closeSheet();show('scSetup');document.querySelector('.app').scrollTo(0,0);
+  }
+  function exportFinished(){
+    if(restoring)return;
+    if(current()==='scSetup'&&saved&&S&&saved.game.sessionId===S.sessionId){saved.game.gal=clone(S.gal);write(saved);}
+    else checkpoint();
+  }
+  async function resume(){
+    if(!saved||restoring)return;
+    const x=clone(saved);restoring=true;$('bResume').disabled=true;
+    try{
+      S=x.game;setup=x.setup||setup;exportReady=Promise.resolve();
+      renderCount();renderNames();renderGenres();
+      $('selLevel').value=String(S.level);$('selMode').value=S.mode;$('selTime').value=String(S.secs);
+      ['segLevel','segMode','segTime'].forEach((id,i)=>{const value=[S.level,S.mode,S.secs][i];document.querySelectorAll('#'+id+' .sg').forEach(b=>{const on=b.dataset.v===String(value);b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on));});});
+      if(x.screen==='scTopic'){
+        $('rNo').textContent=S.round;$('mParent').textContent=S.players[S.parent].name;$('mNavi').textContent=S.players[navi()].name;$('warnName').textContent=S.players[S.parent].name;
+        $('mLevel').textContent=S.level?'Lv'+S.level+' '+lvOf(S.level).t:'なし';
+        $('manualBox').classList.toggle('hide',!S.manual);$('bShuffle').classList.toggle('hide',S.manual);$('inBField').classList.toggle('hide',S.mode!=='chimera');
+        $('inA').value=x.inputs.a;$('inB').value=x.inputs.b;$('bManual').textContent=S.manual?'ランダムに戻す':'自分たちでお題を決める';paintTopic();show('scTopic');
+      }else if(x.screen==='scPass'){gotoPass();}
+      else if(x.screen==='scDraw'){
+        startTurn();strokes=x.strokes;erasing=!!x.erasing;lw=11;syncTools();redraw();startTimer(Number.isFinite(x.timerLeft)?x.timerLeft:S.secs);
+      }else if(x.screen==='scReveal'){
+        gotoReveal();for(let i=0;i<Math.min(x.shown||0,S.order.length);i++)stackOne();
+      }else if(x.screen==='scResult'){
+        if(!S.gal.some(g=>g.r===S.round)){compose();await exportReady;}
+        $('bSave').disabled=false;renderResult((S.log[S.log.length-1]?.res||'').startsWith('正解'));
+      }else if(x.screen==='scEnd'){await endGame();}
+      // Do not reveal an unfinished drawing at a stale scroll position.
+      if(x.screen!=='scDraw')document.querySelector('.app').scrollTo(0,x.scrollY||0);
+    }catch(e){clearInterval(tid);show('scSetup');warning('保存した続きの復元に失敗しました。保存データは残しています。');}
+    finally{restoring=false;$('bResume').disabled=false;checkpoint();card();}
+  }
+  function newGameAllowed(){
+    if(!saved)return true;
+    if(!confirm('保存している続きは上書きされます。新しいゲームを始めますか？'))return false;
+    saved=null;try{localStorage.removeItem(KEY)}catch(_){};card();return true;
+  }
+  function init(){
+    try{const raw=localStorage.getItem(KEY);if(raw){const x=JSON.parse(raw);if(valid(x))saved=x;else throw Error('invalid checkpoint');}}
+    catch(e){warning('保存データを読み込めませんでした。ブラウザの保存設定をご確認ください。');}
+    loaded=true;card();$('bResume').onclick=resume;$('bReset').onclick=pause;$('bPauseDraw').onclick=pause;
+    document.addEventListener('click',schedule);
+    document.addEventListener('input',schedule);
+    $('cv').addEventListener('pointerup',checkpoint);$('cv').addEventListener('pointercancel',checkpoint);$('cv').addEventListener('pointermove',()=>{if(cur&&!saveTimeout)saveTimeout=setTimeout(()=>{saveTimeout=null;checkpoint();},750);});
+    window.addEventListener('pagehide',pause);
+    window.addEventListener('beforeunload',()=>{clearInterval(tid);checkpoint();});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
+  }
+  return {init,onShow,checkpoint,schedule,pause,resume,newGameAllowed,exportFinished};
+})();
+GameResume.init();
+​
+</script>
+<script>
+​
+/* Browser-edge gesture guard: preserve normal in-app scrolling and pinch zoom. */
+(()=>{
+ const app=document.querySelector('.app');
+ function viewport(){
+  const v=window.visualViewport;
+  if(!v||Math.abs(v.scale-1)<.02)document.documentElement.style.setProperty('--app-height',(v?v.height:innerHeight)+'px');
+ }
+ viewport();window.addEventListener('resize',viewport);window.visualViewport?.addEventListener('resize',viewport);
+ let lastX=0,lastY=0,tracking=false;
+ document.addEventListener('touchstart',e=>{
+  tracking=e.touches.length===1;
+  if(tracking){lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;}
+ },{capture:true,passive:true});
+ document.addEventListener('touchmove',e=>{
+  if(!tracking||e.touches.length!==1)return;
+  const t=e.touches[0],dx=t.clientX-lastX,dy=t.clientY-lastY;lastX=t.clientX;lastY=t.clientY;
+  const target=e.target instanceof Element?e.target:e.target.parentElement;
+  if(target?.closest('#cv')||Math.abs(dy)<=Math.abs(dx)||dy===0)return;
+  let canScroll=false;
+  for(let el=target;el&&el!==document.body;el=el.parentElement){
+   const st=getComputedStyle(el);
+   if(/auto|scroll/.test(st.overflowY)&&el.scrollHeight>el.clientHeight+1){
+    if((dy>0&&el.scrollTop>0)||(dy<0&&el.scrollTop+el.clientHeight<el.scrollHeight-1)){canScroll=true;break;}
+   }
+   if(el===app||el.classList.contains('panel'))break;
+  }
+  if(!canScroll&&e.cancelable)e.preventDefault();
+ },{capture:true,passive:false});
+ document.addEventListener('touchend',()=>{tracking=false},{passive:true});
+ document.addEventListener('touchcancel',()=>{tracking=false},{passive:true});
+})();
+​
+</script>
+<script>
+// Touch completion remains responsive immediately after a canvas stroke.
+(()=>{
+ const done=document.getElementById('bDone');let tap=null;
+ done.addEventListener('pointerdown',e=>{tap=e.pointerType==='touch'?{id:e.pointerId,x:e.clientX,y:e.clientY}:null;});
+ done.addEventListener('pointercancel',()=>{tap=null;});
+ done.addEventListener('pointerup',e=>{
+  const t=tap;tap=null;
+  if(t&&t.id===e.pointerId&&Math.hypot(e.clientX-t.x,e.clientY-t.y)<8)done.click();
+ });
+})();
+</script>
 </body>
 </html>
+​
