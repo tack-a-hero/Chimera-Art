@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet"><meta name="app-release" content="mobile-review-20261029-v9"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap" rel="stylesheet"><script>window.SessionUI=(()=>{
+<head><meta name="app-release" content="screen-repair-20261029-v10"><script>window.SessionUI=(()=>{
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const icon=p=>p.icon||(window.GameArt?GameArt.person(p.seat??p.id):'');
  const rows=players=>players.map(p=>`<button type="button" class="session-seat" data-seat="${esc(p.id)}" ${p.disabled?'disabled':''}><span class="session-face">${icon(p)}</span><span class="session-seat-copy"><b>${esc(p.name)}</b><small>${esc(p.status||(p.done?'確認済み':'タップして確認'))}</small></span><span class="session-chevron" aria-hidden="true">${p.done?'✓':'›'}</span></button>`).join('');
@@ -33,7 +33,7 @@
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
  return{esc,rows,mount,pick,confirm,dialog,viewport};
 })();
-</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@500;700&amp;display=swap" rel="stylesheet"><script>window.GameArt=(()=>{
+</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><script>window.GameArt=(()=>{
  const geometry={"h": 1254, "rows": [{"y": 616, "height": 260}, {"y": 920, "height": 260}], "crest": false},key='Chimera-Art:portraits:v1';
  let order=Array.from({length:12},(_,i)=>i);
  try{const saved=JSON.parse(localStorage.getItem(key));if(Array.isArray(saved)&&saved.length>=12&&saved.length%12===0&&saved.every(i=>Number.isInteger(i)&&i>=0&&i<12)&&Array.from({length:saved.length/12},(_,i)=>new Set(saved.slice(i*12,i*12+12)).size===12).every(Boolean))order=saved}catch{}
@@ -613,7 +613,7 @@ button,a,.passCard{touch-action:manipulation}
 #fx.on{display:block}
 
 </style>
-</head>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@700&amp;display=swap" rel="stylesheet"></head>
 <body>
 <canvas id="fx"></canvas>
 <div class="app">
@@ -660,7 +660,7 @@ button,a,.passCard{touch-action:manipulation}
   </div>
 
   <div class="card">
-    <span class="lab" style="display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);font-weight:600;margin-bottom:10px">Players</span>
+    <span class="lab" style="display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);font-weight:600;margin-bottom:10px">メンバー</span>
     <div class="chips" id="countChips"></div>
     <hr />
     <div id="pList"></div>
@@ -670,9 +670,7 @@ button,a,.passCard{touch-action:manipulation}
   <div class="chips" id="genreChips"></div>
 
   <h2>オプション</h2>
-  <div class="field"><span class="lab">Level（上級者向けの縛り）</span><div class="seg" id="segLevel"></div><select id="selLevel" class="hide" aria-hidden="true" tabindex="-1"></select></div>
-  <p class="small" style="margin:-6px 0 16px">描き方に縛りを足すおまけルール（例：上下逆に描く、利き手と逆の手で描く）。まずは「なし」でOK。</p>
-  <div class="field"><span class="lab">Mode</span>
+  <div class="field"><span class="lab">モード</span>
     <div class="seg col" id="segMode"></div>
     <select id="selMode" class="hide" aria-hidden="true" tabindex="-1">
       <option value="basic">基本|全部重ねてから一回で当てる</option>
@@ -680,7 +678,7 @@ button,a,.passCard{touch-action:manipulation}
       <option value="chimera">キメラ|お題2つを混ぜて描く上級ルール</option>
     </select>
   </div>
-  <div class="field"><span class="lab">Time</span>
+  <div class="field"><span class="lab">制限時間</span>
     <div class="seg" id="segTime"></div>
     <select id="selTime" class="hide" aria-hidden="true" tabindex="-1">
       <option value="30">30秒</option><option value="45">45秒</option><option value="60" selected>60秒</option><option value="90">90秒</option>
@@ -688,6 +686,9 @@ button,a,.passCard{touch-action:manipulation}
     </select>
   </div>
 
+  <details class="chimera-advanced"><summary>描き方の追加ルール</summary>  <div class="field"><span class="lab">Level（上級者向けの縛り）</span><div class="seg" id="segLevel"></div><select id="selLevel" class="hide" aria-hidden="true" tabindex="-1"></select></div>
+  <p class="small" style="margin:-6px 0 16px">描き方に縛りを足すおまけルール（例：上下逆に描く、利き手と逆の手で描く）。まずは「なし」でOK。</p>
+</details>
   <div class="stack">
     <button class="btn" id="bStart">はじめる</button>
     <button class="btn line" id="bRules2">遊び方を見る</button>
@@ -1027,7 +1028,7 @@ let setup = {count:4, names:["","","","","",""], genres:["anime","disney","game"
 function decorateChimera(){
  const screen=document.querySelector('.screen.on')?.id;
  if(screen==='scSetup')document.querySelectorAll('#names .nm').forEach((el,i)=>{if(!el.parentElement.querySelector('.portrait-choice'))el.insertAdjacentHTML('beforebegin',GameArt.button(i));});
- if(screen==='scPass'&&S){const seat=S.order[S.turn];const host=document.querySelector('#scPass .passCard');if(host&&!host.querySelector('.chimera-pass-person'))host.insertAdjacentHTML('afterbegin',GameArt.person(seat,'chimera-pass-person'));}
+ if(screen==='scPass'&&S){const seat=S.order[S.turn];const host=document.querySelector('#scPass .passCard');if(host){host.querySelector('.chimera-pass-person')?.remove();host.insertAdjacentHTML('afterbegin',GameArt.person(seat,'chimera-pass-person'));}}
  if(screen==='scReveal'&&S){document.getElementById('layers').style.setProperty('--sheet-count',S.order.length);let meter=document.getElementById('acetateProgress');if(!meter){meter=document.createElement('div');meter.id='acetateProgress';meter.className='acetate-progress';document.getElementById('stage2').before(meter);}meter.innerHTML=S.order.map((_,i)=>'<span class="sheet-token '+(revealed.includes(i)?'on':'')+'" aria-hidden="true"></span>').join('')+'<small>公開 '+revealed.length+' / '+S.order.length+' 枚'+(S.mode==='score'?' ・ 今正解で一人 +'+(1+S.order.length-revealed.length)+'点':'')+'</small>';}
 }
 function show(id){
@@ -1038,7 +1039,7 @@ function show(id){
   document.body.classList.toggle("is-topic",id==="scTopic");
   document.querySelector(".app").scrollTo({top:0,behavior:"instant"});window.scrollTo(0,0);
   window.GameResume?.onShow(id);
-  window.AppNavigation?.afterShow();decorateChimera();
+  window.AppNavigation?.afterShow();decorateChimera();document.getElementById("mLevel")?.parentElement.classList.toggle("hide",!S?.level);
 }
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]];}return a;}
 function lvOf(n){return LV.find(l=>l.n===n)||LV[0];}
@@ -1116,7 +1117,7 @@ function rollTopic(){
 function paintTopic(){
   const one=(x)=>'<div class="slip"><div class="tag">Topic'+(S.B?(x===S.A?" A":" B"):"")+'</div>'
     +'<div class="t">'+esc(x.t)+'</div>'
-    +(x.s?'<div class="src">'+esc(x.s)+'</div>':"")
+    +(x.s&&x.s!==x.t?'<div class="src">'+esc(x.s)+'</div>':"")
     +'<div class="g">'+gLabel(x.g)+' ・ 難易度 '+stars(x.lv)+'</div></div>';
   $("topicView").innerHTML = S.A ? (one(S.A)+(S.B?one(S.B):"")) : "";
   $("topicView").classList.toggle("hide", S.manual);
@@ -1210,7 +1211,7 @@ function startTurn(){
   if(seat===undefined || !p){ gotoReveal(); return; }
   SFX.start();
   ink=p.color; erasing=false; lw=11; strokes=[]; toolPast=[]; toolFuture=[];cur=null; penSeen=false; activePointer=null;
-  $("kWho").innerHTML='<span class="edition-identity">'+GameArt.person(seat)+'<span>'+esc(p.name)+' の番</span></span>';
+  $("kWho").innerHTML='<span class="edition-identity">'+GameArt.person(seat)+'<span>'+esc(p.name)+'<small>描く人</small></span></span>';
   $('dTopic').innerHTML=[S.A,S.B].filter(Boolean).map(t=>'<span class="topic-name">'+esc(t.t)+'</span>'+(t.s?'<small class="topic-source">'+esc(t.s)+'</small>':'')).join('<span class="topic-plus">＋</span>');
   const extra = S.mode==="chimera" ? "キメラ：貢献できそうな方を描く（相談禁止）" : "";
   $("dLevel").textContent = S.level===0 ? extra : ("Lv"+S.level+"："+lvOf(S.level).d+(extra?" ・ "+extra:""));
@@ -1371,7 +1372,7 @@ function judge(ok){
 }
 function renderResult(ok){
   $("rsHead").textContent = ok?"正解！":"惜しい！";
-  $("rsSub").textContent = "お題は「"+topicText()+"」でした。";
+  $("rsSub").textContent = topicText();
   const st=$("stage3");
   st.querySelectorAll("img").forEach(n=>n.remove());
   S.order.forEach(seat=>{ const im=document.createElement("img"); im.src=S.layers[seat]; im.className="on"; st.appendChild(im); });
@@ -1622,21 +1623,7 @@ GameResume.init();
   tracking=e.touches.length===1;
   if(tracking){lastX=e.touches[0].clientX;lastY=e.touches[0].clientY;}
  },{capture:true,passive:true});
- document.addEventListener('touchmove',e=>{
-  if(!tracking||e.touches.length!==1)return;
-  const t=e.touches[0],dx=t.clientX-lastX,dy=t.clientY-lastY;lastX=t.clientX;lastY=t.clientY;
-  const target=e.target instanceof Element?e.target:e.target.parentElement;
-  if(target?.closest('#cv')||Math.abs(dy)<=Math.abs(dx)||dy===0)return;
-  let canScroll=false;
-  for(let el=target;el&&el!==document.body;el=el.parentElement){
-   const st=getComputedStyle(el);
-   if(/auto|scroll/.test(st.overflowY)&&el.scrollHeight>el.clientHeight+1){
-    if((dy>0&&el.scrollTop>0)||(dy<0&&el.scrollTop+el.clientHeight<el.scrollHeight-1)){canScroll=true;break;}
-   }
-   if(el===app||el.classList.contains('panel'))break;
-  }
-  if(!canScroll&&e.cancelable)e.preventDefault();
- },{capture:true,passive:false});
+ /* Document overscroll is handled once by ScreenScroll. */
  document.addEventListener('touchend',()=>{tracking=false},{passive:true});
  document.addEventListener('touchcancel',()=>{tracking=false},{passive:true});
 })();
@@ -1775,16 +1762,7 @@ html.reload-protected,html.reload-protected body{overscroll-behavior-y:none}
  document.addEventListener('touchstart',e=>{
   touch=e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null;
  },{passive:true});
- document.addEventListener('touchmove',e=>{
-  if(!playing()||!touch||e.touches.length!==1)return;
-  const t=e.touches[0],dy=t.clientY-touch.y,dx=t.clientX-touch.x;
-  touch={x:t.clientX,y:t.clientY};
-  if(dy<=0||dy<=Math.abs(dx))return;
-  const canScrollUp=e.composedPath().some(el=>el instanceof Element&&
-   el.scrollHeight>el.clientHeight+1&&el.scrollTop>0&&
-   /^(auto|scroll|overlay)$/.test(getComputedStyle(el).overflowY));
-  if(!canScrollUp&&(document.scrollingElement?.scrollTop||0)<=0&&e.cancelable)e.preventDefault();
- },{passive:false});
+ /* Document overscroll is handled once by ScreenScroll. */
  const reset=()=>{touch=null};
  document.addEventListener('touchend',reset,{passive:true});
  document.addEventListener('touchcancel',reset,{passive:true});
@@ -1934,5 +1912,194 @@ html body{position:relative!important;inset:auto!important;height:auto!important
 html body .app{position:relative!important;inset:auto!important}
 html body #worldToolbar .world-icon,html body .step-btn{border-radius:50%!important}
 html body button:focus-visible{outline:2px solid var(--ui-accent)!important;outline-offset:3px!important}
-</style></body>
+</style><style id="screen-repair-v10">:root{--app-bar-h:calc(56px + env(safe-area-inset-top,0px));--app-view-h:calc(var(--visible-h,100dvh) - var(--app-bar-h))}
+html,html body{overscroll-behavior-y:none!important;scroll-padding-top:calc(var(--app-bar-h) + 10px)!important}
+html body{display:block!important;padding-top:0!important;margin:0!important;min-height:100dvh!important}
+html body #worldToolbar{position:sticky!important;inset:auto!important;top:0!important;left:auto!important;right:auto!important;margin:0!important;flex:none!important;height:var(--app-bar-h)!important;align-self:stretch!important}
+html body .app,html body #app,html body #appRoot{padding-top:0!important;margin-top:0!important;scroll-padding-top:12px!important}
+html body .badge,html body .tag,html body .private-badge,html body .score-tag{border:0!important;box-shadow:none!important;text-shadow:none!important;background:none!important}
+html body .session-dialog{border-radius:16px!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;overflow:hidden!important;min-height:0!important}
+html body .session-dialog:not([open]){display:none!important}
+@layer sessionTypography{html body input::placeholder,html body textarea::placeholder{font-family:inherit!important;font-weight:inherit!important;font-style:normal!important}}
+html body .session-dialog-head{flex:none!important;align-items:center!important;gap:12px!important}
+html body .session-dialog-body{min-height:0!important;overflow:auto!important;overscroll-behavior-y:contain!important;flex:1 1 auto!important}
+html body .session-note{flex:none!important}
+html body .session-actions{flex:none!important;position:relative!important;background:var(--ui-panel)!important;padding:12px 0 0!important;margin-top:8px!important}
+html body button{ text-shadow:none!important }
+html body .btn,html body .button,html body .session-actions button,html body .seg button,html body button.chip{display:inline-flex!important;align-items:center!important;justify-content:center!important;line-height:1.5!important;text-align:center!important;border-radius:14px!important;box-sizing:border-box!important}
+html body .back-slot,html body button[onclick="goBack()"]{display:none!important}
+html body .dialog-actions{position:sticky!important;bottom:0!important;flex:none!important;background:var(--ui-panel)!important;padding:12px 0!important;margin:8px 0 0!important}
+</style><style id="screen-repair-v10">html body{--ui-bg:#f7f1e2!important;--ui-panel:#fffdf6!important;--ui-ink:#203e4c!important;--ui-muted:#5b6c70!important;--ui-accent:#3158aa!important;--bg:#f7f1e2!important;--tx:#203e4c!important;--tx2:#5b6c70!important;--tx3:#6c7974!important;--accent:#3158aa!important;--line:#d8d2bf!important;background:#f7f1e2!important}
+html body:before,html body:after{display:none!important}
+html body .app{height:auto!important;min-height:var(--app-view-h)!important;padding:0 8px 16px!important;overflow:visible!important;background:#f7f1e2!important}
+html body.is-drawing .app{height:var(--app-view-h)!important;min-height:0!important;padding:0 8px 6px!important}
+html body .screen:not(.on){display:none!important}
+html body .screen.on:not(#scDraw){height:auto!important;max-height:none!important;min-height:0!important;overflow:visible!important;padding-top:12px!important}
+html body #scDraw.on{height:100%!important;min-height:0!important}
+html body .app,html body .app *{text-shadow:none!important;filter:none!important}
+html body #scSetup .hero{padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:none!important}
+html body #scSetup .heroGlow,html body #scSetup .heroFace,html body #scSetup .heroStats{display:none!important}
+html body #scSetup .hero .game-cover-art{margin:0 0 14px!important;border:0!important;border-radius:16px!important;box-shadow:none!important}
+html body #scSetup .heroWord{font-size:34px!important;line-height:1.3!important;color:#203e4c!important;margin:12px 0!important}
+html body #scSetup .heroWord em{font-size:14px!important;color:#3158aa!important}
+html body #resumeCard{background:#e5edf5!important;border:0!important;border-radius:16px!important;box-shadow:none!important;padding:18px!important;margin:0 0 16px!important}
+html body #resumeCard h2{font-size:21px!important;margin:6px 0!important;color:#203e4c!important}
+html body #resumeCard p{font-size:13px!important;line-height:1.7!important;color:#506773!important}
+html body #resumeCard .kicker{display:none!important}
+html body #bResume,html body #bStart,html body #bDeal,html body #bOpen,html body #bDone,html body #bNext,html body #bOk{background:#3158aa!important;background-image:none!important;color:#fffdf4!important;border:0!important;box-shadow:none!important;text-shadow:none!important}
+html body #bNg{background:#f2dfd3!important;background-image:none!important;color:#945137!important;border:0!important;box-shadow:none!important}
+html body #scTopic .dock #bDeal,html body #scPass .dock #bOpen{background:#3158aa!important;background-image:none!important;color:#fffdf4!important;box-shadow:none!important;border:0!important}
+html body #scPass.on{display:flex!important;flex-direction:column!important;justify-content:center!important;min-height:var(--app-view-h)!important;padding:16px 0!important;box-sizing:border-box!important;gap:12px!important}
+html body .app #scPass.screen.on{min-height:calc(var(--app-view-h) - 16px)!important;justify-content:center!important}
+html body #scPass #passCard{margin:0!important;padding:24px 18px!important;background:#fffdf6!important;border:0!important;box-shadow:none!important;border-radius:16px!important}
+html body #scPass #passCard p{margin:8px 0!important;line-height:1.7!important}
+html body #scPass>.dock{margin:0!important;padding:0!important;position:static!important}
+html body #scTopic .warn,html body #scTopic .warning{border:0!important;border-radius:14px!important;box-shadow:none!important;background:#f6e4b5!important}
+html body #scTopic .panel{padding:14px!important;border:0!important;border-radius:14px!important;box-shadow:none!important;background:#fffdf6!important}
+html body #scResult #rsSub{margin:6px 0 12px!important;font-size:14px!important;line-height:1.65!important}
+html body #scResult .kicker{display:none!important}
+html body #scSetup .intro,html body #scSetup .heroSub{color:#5b6c70!important;font-size:14px!important;line-height:1.8!important}
+html body #scSetup>.dock,html body #scTopic>.dock,html body #scPass>.dock,html body #scReveal>.dock,html body #scResult>.dock,html body #scEnd>.dock{position:static!important;inset:auto!important;display:block!important;width:100%!important;height:auto!important;background:none!important;backdrop-filter:none!important;margin:8px 0 0!important;padding:8px 0!important}
+html body #scReveal>.dock .inner{display:flex!important;gap:10px!important;padding:0!important}
+html body #scSetup>.dock,html body #scTopic>.dock,html body #scPass>.dock{position:sticky!important;bottom:0!important;top:auto!important;z-index:12!important;background:#f7f1e2!important;padding:10px 0!important}
+html body #scSetup .panel{border:0!important;background:#fffdf6!important;box-shadow:none!important;border-radius:16px!important;padding:16px!important}
+html body #scReveal #layers .layer-person{background:#f5f0de!important;color:#203e4c!important}
+html body #scReveal #layers .layer-person[aria-pressed=true]{background:#e0eafa!important;outline:2px solid #3158aa!important}
+html body #scReveal #layers .layer-name{color:#203e4c!important}
+/* An artist's desk: warm paper, ultramarine ink, ochre and terracotta. */
+html{background:#f7f1e2!important}
+html body .app{--surface:#fffdf6;--raised:#e8ece5;--line2:#babda9;--ok:#3158aa;--ng:#a3563c;color:#203e4c!important}
+html body .app h1,html body .app h2,html body .app h3,html body .app .t,html body .app .v{color:#203e4c!important;letter-spacing:.015em!important}
+html body .app h2{font-size:19px!important;line-height:1.5!important;margin:20px 0 12px!important}
+html body .app .kicker,html body .app .lab,html body .app .k{color:#68766f!important;letter-spacing:.08em!important}
+html body .app .small,html body .app .src,html body .app .g,html body .app .topic-source{color:#5c6f74!important;line-height:1.65!important}
+html body .app .btn,html body .app .sg,html body .app .chip{background:#e5ece8!important;background-image:none!important;color:#254d5b!important;border:0!important;box-shadow:none!important;text-shadow:none!important;border-radius:14px!important;min-height:44px!important;padding:10px 14px!important}
+html body .app .chip.on,html body .app .sg.on,html body .app .sg[aria-pressed=true]{background:#3158aa!important;color:#fffdf4!important;box-shadow:none!important}
+html body .app #bResume,html body .app #bStart,html body .app #bDone,html body .app #bNext,html body .app #bOk{background:#3158aa!important;color:#fffdf4!important}
+html body .app #bNg{background:#f2dfd3!important;color:#945137!important}
+html body .app input{background:#fffdf6!important;color:#203e4c!important;border-color:#ccd2c2!important;border-radius:12px!important;box-shadow:none!important}
+html body .app input::placeholder{color:#6b7877!important;opacity:1!important}
+html body #scSetup .heroWord{font-size:32px!important;letter-spacing:.035em!important;line-height:1.25!important;text-align:left!important;margin:8px 0 22px!important}
+html body #scSetup .heroWord em{display:inline!important;font-size:14px!important;margin-left:10px!important;letter-spacing:.12em!important;color:#ad6546!important}
+html body #scSetup .hero .game-cover-art{margin:0 0 16px!important;border-radius:18px!important}
+html body #scSetup .card{padding:16px!important;background:#fffdf6!important;border:0!important;border-radius:18px!important;box-shadow:none!important}
+html body #scSetup .seg{padding:0!important;background:none!important;border:0!important;box-shadow:none!important;gap:6px!important}
+html body #scSetup .seg.col .sg{justify-content:flex-start!important;text-align:left!important;line-height:1.65!important}
+html body #scSetup .chimera-advanced{margin:18px 0!important;padding:0!important;color:#506773!important}
+html body #scSetup .chimera-advanced summary{padding:10px 0!important;cursor:pointer;min-height:44px!important;font-size:14px!important}
+html body #scTopic .meta{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+html body #scTopic .meta>div{border:0!important;border-radius:14px!important;background:#e9eee5!important;padding:12px!important}
+html body #scTopic .meta .v{font-size:16px!important;line-height:1.6!important}
+html body #scTopic .alert{border:0!important;border-radius:14px!important;background:#f4e5bd!important;color:#6a5234!important;padding:12px 14px!important;font-size:13px!important;line-height:1.75!important;box-shadow:none!important;margin:12px 0!important}
+html body #scTopic #topicView .slip{border:0!important;border-radius:18px!important;background:#fffdf6!important;padding:18px!important;margin:12px 0!important;box-shadow:none!important}
+html body #scTopic #topicView .t{font-size:25px!important;line-height:1.5!important;margin:5px 0!important}
+html body #scTopic #topicView .tag{color:#ac5c3b!important;font-size:11px!important;letter-spacing:.12em!important}
+html body #scTopic .stack{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}
+html body #scTopic .stack .btn{font-size:13px!important;line-height:1.6!important}
+html body .app #scPass #passCard{background:none!important;padding:16px 12px!important}
+html body #scPass #passCard h1{font-size:30px!important;line-height:1.5!important;margin:10px 0!important}
+html body #scPass #passCard .kicker{font-size:12px!important;color:#a85b3d!important}
+html body #scPass #passCard .passAv{display:none!important}
+html body #scDraw .drawing-brief{padding:0!important}
+html body #scDraw #kWho{color:#335660!important;font-size:13px!important;letter-spacing:.01em!important}
+html body #scDraw #dTopic{padding:5px 0!important;border:0!important;background:none!important;font-size:22px!important;color:#203e4c!important}
+html body #dRoles button.role{background:#f3e2ad!important;color:#5e4c2f!important;border:0!important;box-shadow:none!important;border-radius:12px!important;min-height:32px!important;padding:5px 10px!important}
+html body #dRoles button.role[aria-pressed=true]{background:#3158aa!important;color:#fffdf4!important}
+html body #dRoleBoundary{color:#576e70!important}
+html body #scDraw .ringWrap .trk{stroke:#d7dfd8!important}
+html body #scDraw .ringWrap .prg{stroke:#bd6141!important}
+html body #scDraw .ringWrap .timer{color:#31516a!important;font-size:11px!important}
+html body #scDraw #stage1,html body #stage2,html body #stage3{background:#fff!important;background-image:none!important;border:0!important;outline:0!important;border-radius:18px!important;box-shadow:0 3px 12px #3547530a!important}
+html body #scDraw .tools button[data-drawing-icon]{background:#e5ece8!important;color:#315b67!important;border:0!important;box-shadow:none!important;border-radius:12px!important}
+html body #scDraw .tools button[data-drawing-icon].on{background:#f4d6ac!important;color:#644529!important}
+html body #scDraw .tools button:disabled{opacity:.35!important}
+html body #scReveal .reveal-authors-head h2{font-size:17px!important;margin:12px 0 8px!important}
+html body #scReveal #layers .layer-person{background:#fffdf6!important;border:0!important;border-radius:14px!important;padding:10px 12px!important;box-shadow:none!important}
+html body #scReveal #layers .layer-person[aria-pressed=true]{background:#e0eafa!important;outline:2px solid #3158aa!important}
+html body #scReveal #layers .layer-status{color:#677970!important}
+html body #scReveal #layers .layer-roles{color:#536c71!important;line-height:1.7!important}
+html body #scReveal #bAll{background:#e5ece8!important;color:#31566c!important;min-height:44px!important}
+html body #scResult #rsHead{font-size:28px!important;line-height:1.5!important;margin:12px 0 4px!important}
+html body #scResult table{font-size:12px!important;line-height:1.7!important}
+html body #scResult #bSave,html body #scResult #bUnknown{background:#e5ece8!important;color:#31566c!important}
+html body #scResult .dock .btn:last-child{background:#3158aa!important;color:#fffdf4!important}
+html body #scSetup .card:has(#pList){background:none!important;padding:0!important;box-shadow:none!important}
+html body .app #pList .prow{display:grid!important;grid-template-columns:46px minmax(0,1fr)!important;align-items:center!important;gap:14px!important;min-height:82px!important;padding:12px!important;margin:8px 0!important;background:#fffdf6!important;border:0!important;border-radius:16px!important;box-sizing:border-box!important}
+html body .app #pList .prow>.sw{width:46px!important;height:58px!important;grid-column:1!important;display:block!important}
+html body .app #pList .prow input{grid-column:2!important;padding:8px 0!important;margin:0!important;background:none!important;border:0!important;border-radius:0!important;font-size:18px!important;color:#203e4c!important;box-shadow:none!important}
+html body .app #pList .portrait-choice,html body .app #pList .art-person{width:46px!important;height:58px!important;border:0!important;border-radius:9px!important;box-shadow:none!important}
+html body #scDraw #kWho .edition-identity{display:inline-flex!important;align-items:center!important;gap:10px!important;background:#fffdf6!important;padding:4px 10px 4px 4px!important;border-radius:12px!important;min-height:44px!important;box-sizing:border-box!important}
+html body #scDraw #kWho .art-person{width:30px!important;height:38px!important;flex:none!important;border:0!important;border-radius:8px!important;box-shadow:none!important}
+html body #scDraw #kWho .edition-identity>span{font-size:13px!important;line-height:1.5!important;color:#254656!important}
+html body #scDraw #kWho .edition-identity small{display:block!important;font-size:9px!important;line-height:1.4!important;letter-spacing:.12em!important;color:#9d674a!important}
+html body .app #scPass #passCard{display:grid!important;grid-template-columns:76px minmax(0,1fr)!important;align-items:center!important;gap:4px 18px!important;background:#fffdf6!important;padding:22px!important;border-radius:18px!important;max-width:520px!important;width:100%!important;box-sizing:border-box!important}
+html body .app #scPass #passCard .chimera-pass-person{display:block!important;grid-column:1!important;grid-row:1/3!important;width:76px!important;height:96px!important;margin:0!important;border:0!important;border-radius:12px!important;box-shadow:none!important}
+html body .app #scPass #passCard .kicker{grid-column:2!important;grid-row:1!important;text-align:left!important;align-self:end!important;font-size:10px!important;margin:0!important}
+html body .app #scPass #passCard h1{grid-column:2!important;grid-row:2!important;text-align:left!important;align-self:start!important;font-size:25px!important;margin:4px 0 0!important;overflow-wrap:anywhere!important}
+html body .app #scPass #passCard #passSub{grid-column:1/3!important;margin:12px 0 0!important;font-size:13px!important;line-height:1.8!important}
+html body #scReveal #layers .layer-person-top{align-items:center!important;min-height:42px!important}
+html body #scReveal #layers .art-person{width:30px!important;height:38px!important;border-radius:8px!important;border:0!important;box-shadow:none!important}
+html body .app #pList .prow{grid-template-columns:40px minmax(0,1fr)!important;min-height:70px!important;padding:8px 10px!important;margin:6px 0!important;gap:12px!important}
+html body .app #pList .prow>.sw,html body .app #pList .portrait-choice,html body .app #pList .art-person{width:40px!important;height:50px!important;min-width:40px!important}
+html body #scSetup h2{margin:16px 0 8px!important}
+html body #scSetup .field{margin-bottom:12px!important}
+html body #scTopic #topicView .slip{padding:14px!important;margin:10px 0!important}
+html body #scTopic .alert{margin:10px 0!important;padding:10px 12px!important}
+@media(orientation:portrait) and (min-height:741px){html body.is-drawing .app{padding:0 4px 6px!important}html body .app #scDraw.screen.on{display:flex!important;flex-direction:column!important;min-height:0!important;height:100%!important}html body #scDraw .drawing-brief{flex:none!important}html body #scDraw .stagewrap{flex:1 1 auto!important;min-height:0!important;justify-content:center!important}html body #scDraw>.dock{flex:none!important;margin-top:4px!important;padding-bottom:0!important}}
+</style><style id="screen-repair-v10">@layer sessionTypography{html body,html body *{font-family:"IBM Plex Sans JP",sans-serif!important;font-synthesis:none!important}}@layer sessionWeight{html body,html body *{font-weight:700!important}html body h1,html body h2,html body h3,html body button,html body strong,html body b,html body .word-block,html body .h-display,html body .h-screen,html body .judge-name,html body .verdict,html body .result-title{font-weight:700!important}}html body{--ui-font:"IBM Plex Sans JP",sans-serif!important}</style><style id="screen-repair-v10">html body{--identity-paper:#fffdf6;--identity-ink:#203e4c;--identity-muted:#5b7074;}html body .lobby .nrow,html body .setup-names .name-row,html body #name-fields .field,html body #playerList>.player-row,html body #playerList>.p-row,html body .prow:has(input){display:grid!important;grid-template-columns:40px minmax(0,1fr) auto!important;align-items:center!important;gap:12px!important;padding:8px 10px!important;margin:6px 0!important;min-height:70px!important;width:100%!important;box-sizing:border-box!important;background:var(--identity-paper)!important;background-image:none!important;color:var(--identity-ink)!important;border:0!important;border-radius:16px!important;box-shadow:none!important}
+html body .lobby .nrow input,html body .setup-names .name-row input,html body #name-fields .field input,html body #playerList>.player-row input,html body #playerList>.p-row input,html body .prow input{grid-column:2!important;width:100%!important;min-width:0!important;max-width:100%!important;font-size:18px!important;line-height:1.6!important;padding:8px 0!important;margin:0!important;background:none!important;background-image:none!important;color:var(--identity-ink)!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+html body .lobby .nrow input::placeholder,html body .setup-names .name-row input::placeholder,html body #name-fields .field input::placeholder,html body #playerList>.player-row input::placeholder,html body #playerList>.p-row input::placeholder,html body .prow input::placeholder{color:var(--identity-muted)!important;opacity:1!important}
+html body .lobby .nrow .art-person,html body .setup-names .name-row .art-person,html body #name-fields .field .art-person,html body #playerList>.player-row .art-person,html body #playerList>.p-row .art-person,html body .prow .art-person{width:40px!important;height:50px!important;border:0!important;border-radius:9px!important;box-shadow:none!important}
+html body .lobby .nrow .portrait-choice,html body .setup-names .name-row .portrait-choice,html body #name-fields .field .portrait-choice,html body #playerList>.player-row .portrait-choice,html body #playerList>.p-row .portrait-choice,html body .prow .portrait-choice{width:40px!important;height:50px!important;min-width:40px!important;margin:0!important;padding:0!important;border:0!important;border-radius:9px!important;box-shadow:none!important;background:none!important}
+html body .lobby .nrow .portrait-seat,html body .setup-names .name-row .portrait-seat,html body #name-fields .field .portrait-seat,html body #playerList>.player-row .portrait-seat,html body #playerList>.p-row .portrait-seat,html body .prow .portrait-seat{display:none!important}
+html body #app .wrap.lobby .names .nrow input{background:transparent!important;background-image:none!important;color:#283947!important;border:0!important;box-shadow:none!important}
+html body #app .wrap.lobby .names .nrow input::placeholder{color:#5e625c!important;opacity:1!important}
+</style><style id="screen-repair-v10">@media(max-width:699px){
+ html body .session-dialog{padding:16px!important}
+ html body .session-note{margin:8px 0 12px!important;line-height:1.7!important}
+ html body .session-roster{gap:6px!important}
+ html body .session-seat{padding:10px!important;min-height:68px!important;gap:12px!important}
+ html body .session-actions{gap:8px!important;margin-top:10px!important}
+ html body #setupScreen{padding:14px 12px 18px!important}
+ html body #setupScreen .section{margin-top:14px!important;padding-top:14px!important}
+ html body #setupScreen h2{margin:0 0 8px!important}
+ html body #setupScreen .desc{margin:0 0 10px!important;line-height:1.7!important}
+ html body .setup-names{gap:0!important}
+ html body .setup-sheet{padding:16px!important}
+ html body .sec-title{padding:12px 14px 16px!important}
+ html body .nani-title-copy{padding:20px 22px 24px!important}
+}
+</style><script id="screen-scroll-v10">(()=>{
+ let finger=null;
+ const reset=()=>finger=null;
+ document.addEventListener('touchstart',e=>{finger=e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null},{passive:true,capture:true});
+ document.addEventListener('touchmove',e=>{
+  if(!finger||e.touches.length!==1)return;
+  const t=e.touches[0],dy=t.clientY-finger.y,dx=t.clientX-finger.x;finger={x:t.clientX,y:t.clientY};
+  if(Math.abs(dy)<=Math.abs(dx)||dy<=0)return;
+  // Cancel only a downward drag beyond the top edge, never an ordinary page scroll.
+  const path=e.composedPath?.()||[];let canMove=false;
+  for(const el of path){if(!(el instanceof Element))continue;
+   const st=getComputedStyle(el),root=el===document.scrollingElement;
+   if((root||/auto|scroll|overlay/.test(st.overflowY))&&el.scrollHeight>el.clientHeight+1){
+    if(el.scrollTop>0){canMove=true;break;}
+    // Keep a scrollable panel at its own top edge on older WebKit as well.
+    if(!root)break;
+   }
+  }
+  if(!canMove&&e.cancelable)e.preventDefault();
+ },{passive:false,capture:true});
+ document.addEventListener('touchend',reset,{passive:true,capture:true});document.addEventListener('touchcancel',reset,{passive:true,capture:true});
+ const bar=document.getElementById('worldToolbar');if(bar)document.body.prepend(bar);
+ if(window.WorldControls?.world==='Dixit'){
+  const old=WorldControls.fit;WorldControls.fit=()=>{old?.();const card=document.querySelector('.reveal-layout .flip');if(!card)return;const view=visualViewport;const top=card.getBoundingClientRect().top-(view?.offsetTop||0),dock=document.getElementById('dockHost');const height=Math.max(90,(view?.height||innerHeight)-top-(dock?.offsetHeight||0)-28);const side=Math.floor(Math.min(260,innerWidth*.64,height*.75));const key=side+'px';if(document.documentElement.style.getPropertyValue('--dixit-flip-width')!==key)document.documentElement.style.setProperty('--dixit-flip-width',key);};
+ }
+ if(window.WorldControls?.world==='secret-hitler')WorldControls.menu=async()=>{
+  const actions=[{label:'遊び方',value:'rules'},{label:'閉じる',value:null,primary:true}];
+  if(document.querySelector('.game-extra [data-act=myrole]'))actions.unshift({label:'自分の役職を確認',value:'myrole'},{label:'ゲームを終了',value:'quit'});
+  const value=await SessionUI.dialog('メニュー','','',actions);if(value==='rules')WorldControls.help();else if(value)document.querySelector('.game-extra [data-act='+value+']')?.click();
+ };
+ requestAnimationFrame(()=>{window.SessionUI?.viewport();window.WorldUI?.sync();});document.fonts?.ready.then(()=>window.WorldUI?.sync());
+})();
+</script></body>
 </html>
