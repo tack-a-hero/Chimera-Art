@@ -735,14 +735,14 @@ button,a,.passCard{touch-action:manipulation}
 </section>
 
 <!-- DRAW -->
-<section class="screen" id="scDraw"><div class="drawing-brief">
-  <div class="row" style="justify-content:space-between;margin-bottom:10px">
+<section class="screen" id="scDraw">
+  <div class="row drawing-turn-heading" style="justify-content:space-between;margin-bottom:10px">
     <p class="kicker" style="margin:0" id="kWho">—</p>
     <button class="btn xs page-back landscape-back" id="bPageBackDraw" aria-label="ひとつ前の画面に戻る" disabled>← 戻る</button>
     <button class="btn xs pause-draw" id="bPauseDraw">中断</button>
     <div class="ringWrap" id="ringWrap"><svg viewBox="0 0 58 58" aria-hidden="true"><circle class="trk" cx="29" cy="29" r="25.5"/><circle class="prg" id="ringP" cx="29" cy="29" r="25.5" stroke-dasharray="160.2" stroke-dashoffset="0"/></svg><span class="timer" id="timer">—</span></div>
   </div>
-  <div class="slip">
+  <div class="drawing-brief"><div class="slip">
     <div class="tag">Topic</div>
     <div class="t" id="dTopic">—</div>
     <div class="g" id="dLevel"></div>
@@ -759,8 +759,8 @@ button,a,.passCard{touch-action:manipulation}
         <div class="wds" id="wds"></div>
       </div>
       <div class="row">
-        <button class="btn xs" id="bErase" aria-label="消しゴム" title="消しゴム" data-drawing-icon><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14 13 5a2 2 0 0 1 3 0l4 4a2 2 0 0 1 0 3l-8 8H8l-4-4a1.4 1.4 0 0 1 0-2ZM9 9l8 8M11 20h10"/></svg></button>
-        <button class="btn xs" id="bUndo" aria-label="一手戻す" title="一手戻す" data-drawing-icon><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 3 9l5 5M3 9h10a7 7 0 0 1 0 14"/></svg></button><button class="btn xs" id="bRedo" aria-label="やり直す" title="やり直す" data-drawing-icon><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m16 4 5 5-5 5M21 9H11a7 7 0 0 0 0 14"/></svg></button>
+        <button type="button" class="btn xs drawing-mode" id="bPen" aria-label="ペン" aria-pressed="true" title="ペン"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 5 5M4 16 16 4a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button><button class="btn xs drawing-mode" id="bErase" aria-label="消しゴム" title="消しゴム" data-drawing-icon><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4 14 9-9a2 2 0 0 1 3 0l4 4a2 2 0 0 1 0 3l-8 8H8l-4-4a1.4 1.4 0 0 1 0-2ZM9 9l8 8M11 20h10"/></svg></button>
+        <button class="btn xs" id="bUndo" aria-label="一手戻す" title="一手戻す" data-drawing-icon><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 4-5 5 5 5M3 9h10a7 7 0 0 1 0 14"/></svg></button><button class="btn xs" id="bRedo" aria-label="やり直す" title="やり直す" data-drawing-icon><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m16 4 5 5-5 5M21 9H11a7 7 0 0 0 0 14"/></svg></button>
         <button class="btn xs" id="bClear" aria-label="全消し" title="全消し" data-drawing-icon><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7M14 10v7"/></svg></button>
         <span class="small" style="margin-left:auto">点線は顔と上半身の目安／文字はNG</span>
       </div>
@@ -1197,7 +1197,7 @@ function buildTools(){
     ink=b.dataset.c; erasing=false; syncTools();
   });
 }
-function syncTools(){
+function syncTools(){$("bErase").setAttribute("aria-pressed",String(erasing));$("bPen").setAttribute("aria-pressed",String(!erasing));
   document.querySelectorAll("#inks .ink").forEach(b=>b.classList.toggle("on", b.dataset.c===ink && !erasing));
   document.querySelectorAll("#wds .wd").forEach(b=>b.classList.toggle("on", +b.dataset.w===lw));
   $("bErase").style.borderColor = erasing ? "var(--tx)" : "var(--line)";
@@ -1214,7 +1214,7 @@ function startTurn(){
   if(seat===undefined || !p){ gotoReveal(); return; }
   SFX.start();
   ink=p.color; erasing=false; lw=11; strokes=[]; toolPast=[]; toolFuture=[];cur=null; penSeen=false; activePointer=null;
-  $("kWho").innerHTML='<span class="edition-identity">'+GameArt.person(seat)+'<span>'+esc(p.name)+'<small>描く人</small></span></span>';
+  $("kWho").innerHTML='<span class="turn-portrait">'+GameArt.person(seat)+'</span><span class="turn-name">'+esc(p.name)+' さんの番</span>';
   $('dTopic').innerHTML=[S.A,S.B].filter(Boolean).map(t=>'<span class="topic-name">'+esc(t.t)+'</span>'+(t.s?'<small class="topic-source">'+esc(t.s)+'</small>':'')).join('<span class="topic-plus">＋</span>');
   const extra = S.mode==="chimera" ? "キメラ：貢献できそうな方を描く（相談禁止）" : "";
   $("dLevel").textContent = S.level===0 ? extra : ("Lv"+S.level+"："+lvOf(S.level).d+(extra?" ・ "+extra:""));
@@ -1484,7 +1484,7 @@ $("bOpen").onclick=startTurn;
 $("bDone").onclick=doneTurn;
 $('bUndo').onclick=()=>{if(!toolPast.length||cur)return;toolFuture.push(structuredClone(strokes));strokes=toolPast.pop();redraw();};$('bRedo').onclick=()=>{if(!toolFuture.length||cur)return;toolPast.push(structuredClone(strokes));strokes=toolFuture.pop();redraw();};
 $('bClear').onclick=()=>{if(!strokes.length||cur)return;toolPast.push(structuredClone(strokes));toolFuture=[];strokes=[];redraw();};
-$("bErase").onclick=()=>{ erasing=!erasing; syncTools(); };
+$("bPen").onclick=()=>{erasing=false;syncTools()};$("bErase").onclick=()=>{ erasing=!erasing; syncTools(); };
 $("bAll").onclick=()=>{ if(shown<S.order.length) stackAll(); else setLayerFocus(-1); };
 $("bOk").onclick=()=>judge(true);
 $("bNg").onclick=()=>judge(false);
@@ -2135,5 +2135,32 @@ html body .app{height:auto!important;max-height:none!important;overflow:visible!
  const schedule=()=>{if(!queued){queued=true;requestAnimationFrame(sync)}};
  addEventListener('resize',schedule);addEventListener('pageshow',schedule);visualViewport?.addEventListener('resize',schedule);visualViewport?.addEventListener('scroll',schedule);sync();
 })();
-</script><style id="portrait-radius-v18">html body .art-person,html body .portrait-choice,html body .session-face,html body .session-face img,html body .lobby-icon,html body img.player-icon{border-radius:6px!important}html body .portrait-choice,html body .session-face{overflow:hidden!important}</style></body>
+</script><style id="portrait-radius-v18">html body .art-person,html body .portrait-choice,html body .session-face,html body .session-face img,html body .lobby-icon,html body img.player-icon{border-radius:6px!important}html body .portrait-choice,html body .session-face{overflow:hidden!important}</style><style id="tabletop-ux-v20">@layer drawingStates{
+ html body :is(#bPen,#bErase,#bUndo,#bRedo,#bClear,#penModeBtn,#eraserBtn,#undoBtn,#redoBtn,#er,#undo,#redo,#clr,#clearBtn){display:inline-flex!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important;width:44px!important;height:44px!important;min-height:44px!important;padding:0!important;border:1px solid #a8b4bf!important;border-radius:6px!important;background:#fffcf1!important;background-image:none!important;color:#24466f!important;box-shadow:none!important}
+ html body :is(#bPen,#bErase,#bUndo,#bRedo,#bClear,#penModeBtn,#eraserBtn,#undoBtn,#redoBtn,#er,#undo,#redo,#clr,#clearBtn) svg{display:block!important;width:22px!important;height:22px!important;flex:none!important}
+ html body :is(#bErase,#eraserBtn,#er)[aria-pressed=true]{background:#f0c76d!important;background-image:none!important;color:#302714!important;border-color:#f0c76d!important;box-shadow:inset 0 0 0 2px #302714!important;opacity:1!important}
+ html body :is(#bPen,#penModeBtn)[aria-pressed=true]{background:#244f8f!important;background-image:none!important;color:#fff!important;border-color:#244f8f!important;box-shadow:none!important;opacity:1!important}
+ html body :is(#bErase,#eraserBtn,#er,#bPen,#penModeBtn)[aria-pressed=false]{background:#fffcf1!important;background-image:none!important;color:#24466f!important;border-color:#a8b4bf!important;box-shadow:none!important;opacity:1!important}
+ html body :is(#bErase,#eraserBtn,#er,#bPen,#penModeBtn){min-width:44px!important;min-height:44px!important;touch-action:manipulation!important;transition:background-color 150ms,color 150ms!important}
+ html body .turn-name{min-width:0!important;white-space:normal!important;overflow-wrap:anywhere!important;text-align:center!important;line-height:1.5!important}
+}
+
+@layer turnHeading{
+ html body .drawing-turn-heading{display:grid!important;grid-template-columns:44px minmax(0,1fr) 44px!important;align-items:center!important;gap:8px!important;position:relative!important;width:100%!important}
+ html body #kWho{display:grid!important;grid-template-columns:44px minmax(0,1fr) 44px!important;gap:8px!important;grid-column:1/-1!important;grid-row:1!important;width:100%!important;align-items:center!important;margin:0!important;padding:0!important}
+ html body #kWho .turn-portrait{grid-column:1;justify-self:start}
+ html body #kWho .turn-name{grid-column:2;justify-self:stretch;text-align:center!important}
+ html body .drawing-turn-heading #ringWrap{grid-column:3!important;grid-row:1!important;justify-self:end!important;position:relative!important;inset:auto!important;margin:0!important}
+ html body .drawing-turn-heading :is(#bPauseDraw,#bPageBackDraw){grid-column:3;grid-row:2}
+ html body #bPen{font-size:12px!important;padding:4px!important}
+ html body #scDraw>.drawing-turn-heading{flex:none!important;grid-column:1/-1!important;grid-row:1!important}
+ html body #scDraw>.drawing-turn-heading,html body #kWho{box-sizing:border-box!important;margin:0!important;padding:0!important;border:0!important}
+ @media(orientation:landscape) and (max-height:600px){
+  html body #scDraw.on{grid-template-rows:auto minmax(0,1fr) auto!important}
+  html body #scDraw>.drawing-brief{grid-column:1!important;grid-row:2!important}
+  html body #scDraw>.stagewrap{grid-column:2!important;grid-row:2/4!important;min-height:0!important}
+  html body #scDraw>.dock{grid-column:1!important;grid-row:3!important;position:static!important}
+ }
+}
+</style></body>
 </html>
